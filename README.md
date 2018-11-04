@@ -1,5 +1,5 @@
 # IPCam_monitor
-Simple IPCam monitoring system
+Simple IPCam monitoring system - http://ipcam.octonix.net
 
 ## RoadMap
 - [x] Создать новый репозиторий ZigFisher/IPCam_monitor и выполнить форк на Octonix
