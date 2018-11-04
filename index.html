@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta http-equiv="REFRESH" content="300" -->
+
+    <meta name="yandex-verification" content="c931af81c8459f60"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="flymon, flyrouter, zftlab, monitoring, time series, alerting, metrics, telemetry">
+    <meta name="description" content="Octonix lab.">
+    <meta name="author" content="ZFT Lab.">
+
+    <title>Octonix lab.</title>
+
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+
+    <!-- Site icon -->
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="assets/images/favicon.ico"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/microblog/css/microblog.css" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Datepicker CSS -->
+    <link href="assets/datepicker/css/datepicker.css" rel="stylesheet" type="text/css">
+
+    <!-- Fotorama CSS -->
+    <link href="assets/fotorama/css/fotorama.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<!-- nav class="navbar navbar-default navbar-static-top" -->
+<!-- nav class="navbar navbar-default navbar-fixed-top" -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- div class="container-fluid" -->
+    <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><i class="fa fa-flask"></i> Octonix lab.</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+                <!-- Collection <i class="fa fa-line-chart"></i> <i class="fa fa-key"></i> <i class="fa fa-leaf"></i>  <i class="fa fa-bullhorn"></i> <i class="fa fa-wrench"></i> -->
+
+                <li><a href="#" onclick="$('#picker').data('datepicker').show();">Календарь</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">IP камеры<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="?camera=0012175E1558"><i class="fa fa-camera-retro"></i> &nbsp; Камера № 1</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="?camera=00121774F153"><i class="fa fa-camera-retro"></i> &nbsp; Камера № 2</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="?camera=001217809AD9"><i class="fa fa-camera-retro"></i> &nbsp; Камера № 3</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- Page Content -->
+<div class="container" align="center">
+
+  <div class="main">
+    <br>
+    <h1>Please select IPCam...</h1>
+    <br>
+    <div class="fotorama" id="fotorama" data-auto="false" data-transition="crossfade" data-loop="true"
+        data-keyboard="true" data-navposition="bottom"><!--img src="assets/images/test_640x.jpg"--></div>
+    <br>
+    <input type="text" placeholder="Календарь" size="11" class="datepicker-here" id="picker" data-timepicker="true" data-position='right top'/>
+    <br><br>
+    <button id="show">Смотреть</button>
+  </div>
+
+    <footer>
+        <hr>
+        <p class="pull-left">FlyBlog &copy; 2018 v.0.4b</p>
+        <p class="pull-right">Created by <a href="https://www.facebook.com/octonix.net/" title="Go to Octonix page">Octonix</a></p>
+    </footer>
+
+</div><!-- /.container -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Datepicker -->
+<script src="assets/datepicker/js/datepicker.min.js"></script>
+
+<!-- Fotorama -->
+<script src="assets/fotorama/js/fotorama.min.js"></script>
+
+<!-- Stasionok -->
+<script src="assets/stasionok/js/main.js"></script>
+
+</body>
+</html>
