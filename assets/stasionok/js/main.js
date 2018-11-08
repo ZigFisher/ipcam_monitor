@@ -98,9 +98,9 @@ $(function () {
                     camurl = '/~rewm/' + cam + '/' + datenow;
                 // camurl = 'http://localhost:63342/cam-img-to-video/example.html'; // FIXME: DEBUG!!
                 $.get(camurl, function (data) {
-                    html = $.parseHTML(data);
+                    var htmlt = $.parseHTML(data);
 
-                    var aaa = $(html).find("a").toArray();
+                    var aaa = $(htmlt).find("a").toArray();
                     var imgg;
                     while (true) {
                         imgg = aaa.pop();
