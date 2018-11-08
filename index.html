@@ -40,6 +40,7 @@
     <!-- Fotorama CSS -->
     <link href="assets/fotorama/css/fotorama.css" rel="stylesheet" type="text/css">
 
+    <link href="assets/stasionok/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -67,8 +68,6 @@
 
                 <!-- Collection <i class="fa fa-line-chart"></i> <i class="fa fa-key"></i> <i class="fa fa-leaf"></i>  <i class="fa fa-bullhorn"></i> <i class="fa fa-wrench"></i> -->
 
-                <li><a href="index2.html">Бета тест</a></li>
-                
                 <li><a href="#" onclick="$('#picker').data('datepicker').show();">Календарь</a></li>
 
                 <li class="dropdown">
@@ -93,22 +92,48 @@
 <!-- Page Content -->
 <div class="container" align="center">
 
-  <div class="main">
-    <br>
-    <h1>Please select IPCam...</h1>
-    <br>
-    <div class="fotorama" id="fotorama" data-auto="false" data-transition="crossfade" data-loop="true"
-        data-keyboard="true" data-navposition="bottom"><!--img src="assets/images/test_640x.jpg"--></div>
-    <br>
-    <input type="text" placeholder="Календарь" size="16" class="datepicker-here" id="picker" data-timepicker="true" data-position='right top'/>
-    <br><br>
-    <button id="show">Смотреть</button>
-  </div>
+    <div class="main">
+        <br>
+        <h2>Refreshing every 30 sec.</h2>
+        <br>
+        <div id="onecam" style="display: none;">
+            <div class="fotorama" id="fotorama" data-auto="false" data-transition="crossfade" data-loop="true"
+                 data-keyboard="true" data-navposition="bottom"><!--img src="assets/images/test_640x.jpg"--></div>
+            <br>
+            <input type="text" placeholder="Календарь" size="16" class="datepicker-here" id="picker"
+                   data-timepicker="true" data-position='right top'/>
+            <br><br>
+            <button id="show">Смотреть</button>
+        </div>
+        <div id="camblock">
+            <div class="row">
+                <div class="col-xs-4 col-md-4 camlist-item" data-camera="0012175E1558">
+                    <a href="index.html?camera=0012175E1558"><img src="" alt=""></a>
+                </div>
+                <div class="col-xs-4 col-md-4 camlist-item" data-camera="00121774F153">
+                    <a href="index.html?camera=00121774F153"><img src="" alt=""></a>
+                </div>
+                <div class="col-xs-4 col-md-4 camlist-item" data-camera="001217809AD9">
+                    <a href="index.html?camera=001217809AD9"><img src="" alt=""></a>
+                </div>
+                <div class="col-xs-4 col-md-4 camlist-item" data-camera="0012175E1558">
+                    <a href="index.html?camera=0012175E1558"><img src="" alt=""></a>
+                </div>
+                <div class="col-xs-4 col-md-4 camlist-item" data-camera="00121774F153">
+                    <a href="index.html?camera=00121774F153"><img src="" alt=""></a>
+                </div>
+                <div class="col-xs-4 col-md-4 camlist-item" data-camera="001217809AD9">
+                    <a href="index.html?camera=001217809AD9"><img src="" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <hr>
         <p class="pull-left">FlyBlog &copy; 2018 v.0.4b</p>
-        <p class="pull-right">Created by <a href="https://www.facebook.com/octonix.net/" title="Go to Octonix page">Octonix</a></p>
+        <p class="pull-right">Created by <a href="https://www.facebook.com/octonix.net/" title="Go to Octonix page">Octonix</a>
+        </p>
     </footer>
 
 </div><!-- /.container -->
