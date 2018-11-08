@@ -118,6 +118,8 @@ $(function () {
             }
         });
     } else {
+        $('#onecam').hide();
+        $('#camblock').show();
         setLastCamsImg();
         setInterval(setLastCamsImg, refreshTimeout * 1000);
     }
