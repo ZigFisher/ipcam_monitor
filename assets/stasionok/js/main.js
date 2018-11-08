@@ -3,7 +3,7 @@ var urlParams = new URLSearchParams(window.location.search),
 //  baseUrl = 'http://ipcam.octonix.net/~rewm/' + camera + '/',
     baseUrl = '/~rewm/' + camera + '/',
     shiftSlides = 80,
-    refreshTimeout = 60;
+    refreshTimeout = 30;
 
 function setLastCamsImg() {
     $('.camlist-item').each(function (i, item) {
