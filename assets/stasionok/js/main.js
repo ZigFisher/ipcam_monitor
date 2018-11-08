@@ -96,7 +96,7 @@ $(function () {
                 var dtnow = new Date(),
                     datenow = dtnow.getFullYear() + '/' + getLeadingZeroNum(dtnow.getMonth() + 1) + '/' + getLeadingZeroNum(dtnow.getDate()),
                     camurl = '/~rewm/' + cam + '/' + datenow;
-                camurl = 'http://localhost:63342/cam-img-to-video/example.html'; // FIXME: DEBUG!!
+                // camurl = 'http://localhost:63342/cam-img-to-video/example.html'; // FIXME: DEBUG!!
                 $.get(camurl, function (data) {
                     html = $.parseHTML(data);
 
