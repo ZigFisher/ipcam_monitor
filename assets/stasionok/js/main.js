@@ -49,7 +49,7 @@ $(function () {
                 });
                 // delete images[Object.keys(images).length];
                 var toShow = sliceImages(images, startindex);
-
+                console.log(fotorama);
                 fotorama
                     .load(toShow.images)
                     .show(toShow.startfrom);
