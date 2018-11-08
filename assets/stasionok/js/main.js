@@ -77,6 +77,8 @@ $(function () {
     });
 
     if (camera !== null) {
+        $('#onecam').show();
+        $('#camblock').hide();
         $('h1').html(camera);
         datepicker.selectDate(new Date());
         $('#show').click();
@@ -87,6 +89,31 @@ $(function () {
                 onLoad = false;
             }
         });
+    } else {
+        $('.camlist-item').each(function (i, item) {
+            var cam = $(item).data('camera');
+            if (cam.length > 3) {
+                var dtnow = new Date(),
+                    datenow = dtnow.getFullYear() + '/' + getLeadingZeroNum(dtnow.getMonth() + 1) + '/' + getLeadingZeroNum(dtnow.getDate()),
+                    camurl = '/~rewm/' + cam + '/' + datenow;
+                camurl = 'http://localhost:63342/cam-img-to-video/example.html'; // FIXME: DEBUG!!
+                $.get(camurl, function (data) {
+                    html = $.parseHTML(data);
+
+                    var aaa = $(html).find("a").toArray();
+                    var imgg;
+                    while (true) {
+                        imgg = aaa.pop();
+                        imgg = $(imgg).attr('href');
+                        if (imgg.substr(-4) === '.jpg') break;
+                    }
+                    var res =  camurl + '/' + imgg;
+                    var dest = $('.camlist-item')[i];
+                    dest = $(dest).find('img')[0];
+                    $(dest).attr('src',res);
+                });
+            }
+        })
     }
 });
 
