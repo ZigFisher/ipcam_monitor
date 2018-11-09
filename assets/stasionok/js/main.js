@@ -68,7 +68,7 @@ $(function () {
                         var minute = +hour[1];
                         hour = +hour[0];
                         if (hour <= initHour && minute <= initMinute) {
-                            startindex = i - 1;
+                            startindex = i;
                         }
 
                         images[i] = {
@@ -94,7 +94,7 @@ $(function () {
                     var minute = hour[1];
                     hour = hour[0];
                     if (hour <= initHour && minute <= initMinute) {
-                        startindex = i - 1;
+                        startindex = i;
                     }
                 }
             });
