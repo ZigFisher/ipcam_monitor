@@ -158,7 +158,7 @@ function sliceImages(imgs, indx) {
 
 function setNextCamImg(datepicker) {
     var current = new Date(datepicker.selectedDates);
-    datepicker.selectDate(new Date(current.getTime() + refreshTimeout));
+    datepicker.selectDate(new Date(current.getTime() + refreshTimeout * 1000));
     lastDate = false;
     $('#show').click();
 }
