@@ -132,7 +132,7 @@ class CamImg {
             let current = _this.getDateTime();
             _this.datepicker.selectDate(new Date(current.getTime() + _this.refreshTimeout * 1000));
             return _this.showPictures();
-        }, this.refreshTimeout);
+        }, this.refreshTimeout * 1000);
     }
 
     getInitTime() {
