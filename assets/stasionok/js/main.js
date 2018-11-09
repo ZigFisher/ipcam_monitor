@@ -3,7 +3,8 @@ $(function () {
         camera = urlParams.get('camera'),
         refresh = urlParams.get('refresh'),
         datepicker = $('#picker').data('datepicker'),
-        fotorama = $('#fotorama').fotorama().data('fotorama');
+        fotorama = $('#fotorama').fotorama().data('fotorama'),
+        refreshTimeout = 60;
 
     $('#refresh').prop('checked', refresh);
 
