@@ -1,5 +1,7 @@
 var urlParams = new URLSearchParams(window.location.search),
     camera = urlParams.get('camera'),
+    refresh = urlParams.get('refresh'),
+    refreshInterval = false,
 //  baseUrl = 'http://ipcam.octonix.net/~rewm/' + camera + '/',
     baseUrl = '/~rewm/' + camera + '/',
     shiftSlides = 80,
@@ -115,6 +117,11 @@ $(function () {
             if (onLoad) {
                 fotorama.show(shiftSlides - 1);
                 onLoad = false;
+                if (refresh) {
+                    refreshInterval = setInterval(function () {
+                        setNextCamImg(datepicker)
+                    }, refreshTimeout * 1000);
+                }
             }
         });
     } else {
@@ -147,4 +154,10 @@ function sliceImages(imgs, indx) {
         images: result,
         startfrom: startfrom
     };
+}
+
+function setNextCamImg(datepicker) {
+    var current = new Date(datepicker.selectedDates);
+    datepicker.selectDate(new Date(current.getTime() + refreshTimeout));
+    $('#show').click();
 }
