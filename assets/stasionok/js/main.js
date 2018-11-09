@@ -5,6 +5,8 @@ $(function () {
         datepicker = $('#picker').data('datepicker'),
         fotorama = $('#fotorama').fotorama().data('fotorama');
 
+    $('#refresh').prop('checked', refresh);
+
     if (camera !== null) {
         $('#onecam').show();
         $('#camblock').hide();
@@ -32,6 +34,13 @@ $(function () {
         cameraClass.showPictures();
     });
 
+    $('#refresh').change(function () {
+        refresh = $(this).prop('checked');
+        console.log(refresh);
+        let cameraClass = new CamImg(camera, datepicker, fotorama); //get exists with singleton
+
+        cameraClass.setRefresh(refresh); // if refresh = true set interval
+    })
 });
 
 

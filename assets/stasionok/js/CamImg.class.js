@@ -122,8 +122,9 @@ class CamImg {
         if (!refresh) {
             if (this.refresh) {
                 clearInterval(this.refresh);
+                this.refresh = false;
             }
-            return false;
+            return true;
         }
 
         let _this = this;
