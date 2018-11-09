@@ -27,7 +27,7 @@ class CamImg {
     getHtml() {
         return new Promise((resolve, reject) => {
             let url = this.getFullUrl();
-            url = 'http://localhost:63343/cam-img-to-video/example.html'; // FIXME: DEBUG!!
+            // url = 'http://localhost:63343/cam-img-to-video/example.html'; // FIXME: DEBUG!!
 
             $.get(url, function (data) {
                 if (!data.length) return reject('Can`t get filelists');
