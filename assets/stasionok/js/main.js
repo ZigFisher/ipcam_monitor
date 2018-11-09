@@ -37,7 +37,6 @@ $(function () {
 
     $('#refresh').change(function () {
         refresh = $(this).prop('checked');
-        console.log(refresh);
         let cameraClass = new CamImg(camera, datepicker, fotorama); //get exists with singleton
 
         cameraClass.setRefresh(refresh); // if refresh = true set interval
