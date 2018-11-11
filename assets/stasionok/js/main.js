@@ -96,6 +96,9 @@ function putConfigHtml(config) {
     return new Promise((resolve, reject) => {
         if (typeof config === 'undefined' || !config) config = 'config.json';
         $.get(config, function (data) {
+            $('.navbar-brand').html('<i class="fa fa-flask"></i> ' + data.name);
+            $('title').html(data.name);
+            $('#footer-credential').attr('href', data.url).html(data.name);
             if (!Object.keys(data).length) return resolve();
             if (Object.keys(data.cameras).length) {
                 $('#camblock .row').empty();
