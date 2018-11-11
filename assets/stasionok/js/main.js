@@ -61,14 +61,16 @@ $(function () {
     $('#makeurl').click(function () {
         let date = new Date(datepicker.selectedDates);
         date = date.getFullYear() + '-' + getLeadingZeroNum(date.getMonth() + 1) + '-' + getLeadingZeroNum(date.getDate());
-        console.log(date);
         let time = $('.fotorama__active .fotorama__caption__wrap').html();
-        console.log(time);
 
         let theURL = new URL(window.location);
         theURL.searchParams.set('date', date);
         theURL.searchParams.set('time', time);
         $('#url').val(theURL.toString()).toggle();
+        if ($('#url').is(":visible")) {
+            document.getElementById('url').select();
+            document.execCommand("Copy");
+        }
     });
 });
 
