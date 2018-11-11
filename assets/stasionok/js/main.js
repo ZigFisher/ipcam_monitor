@@ -3,7 +3,7 @@ $(function () {
         camera = urlParams.get('camera'),
         refresh = urlParams.get('refresh'),
         config = urlParams.get('config'),
-        date = urlParams.get('data'),
+        date = urlParams.get('date'),
         time = urlParams.get('time'),
         datepicker = $('#picker').data('datepicker'),
         fotorama = $('#fotorama').fotorama().data('fotorama'),
@@ -15,8 +15,9 @@ $(function () {
         $('#onecam').show();
         $('#camblock').hide();
         $('h2').html(camera);
-        if (date.length && time.length) {
-            datepicker.selectDate(date + ' ' + time); // set now as default datetime
+
+        if (date && time) {
+            datepicker.selectDate(new Date(date + ' ' + time)); // set now as default datetime
         } else {
             datepicker.selectDate(new Date()); // set now as default datetime
         }

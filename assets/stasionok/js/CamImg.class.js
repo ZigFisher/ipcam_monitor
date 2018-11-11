@@ -22,7 +22,7 @@ class CamImg {
     }
 
     setConfig(config) {
-        if (typeof config === 'undefined' || !config.length) config = 'config.json';
+        if (typeof config === 'undefined' || !config) config = 'config.json';
         return new Promise((resolve, reject) => {
             $.get(config, function (data) {
                 if (!Object.keys(data).length) return resolve();
