@@ -1,7 +1,10 @@
 $(function () {
-    var urlParams = new URLSearchParams(window.location.search),
+    let urlParams = new URLSearchParams(window.location.search),
         camera = urlParams.get('camera'),
         refresh = urlParams.get('refresh'),
+        config = urlParams.get('config'),
+        date = urlParams.get('data'),
+        time = urlParams.get('time'),
         datepicker = $('#picker').data('datepicker'),
         fotorama = $('#fotorama').fotorama().data('fotorama'),
         refreshTimeout = 60;
@@ -12,18 +15,29 @@ $(function () {
         $('#onecam').show();
         $('#camblock').hide();
         $('h2').html(camera);
-        datepicker.selectDate(new Date()); // set now as default datetime
+        if (date.length && time.length) {
+            datepicker.selectDate(date + ' ' + time); // set now as default datetime
+        } else {
+            datepicker.selectDate(new Date()); // set now as default datetime
+        }
 
         let cameraClass = new CamImg(camera, datepicker, fotorama);
 
-        cameraClass.showPictures();
-        cameraClass.setRefresh(refresh); // if refresh = true set interval
+        cameraClass.setConfig(config)
+            .then(() => {
+                cameraClass.showPictures();
+                cameraClass.setRefresh(refresh); // if refresh = true set interval
+            })
 
     } else {
         $('#onecam').hide();
         $('#camblock').show();
-        setLastCamsImg();
-        setInterval(setLastCamsImg, refreshTimeout * 1000);
+        putConfigHtml(config)
+            .then(() => {
+                setLastCamsImg();
+                setInterval(setLastCamsImg, refreshTimeout * 1000);
+            });
+
     }
 
 
@@ -76,3 +90,27 @@ function getLeadingZeroNum(num) {
     return parseInt(num) < 10 ? '0' + num : num;
 }
 
+function putConfigHtml(config) {
+    return new Promise((resolve, reject) => {
+        if (typeof config === 'undefined' || !config) config = 'config.json';
+        $.get(config, function (data) {
+            if (!Object.keys(data).length) return resolve();
+            if (Object.keys(data.cameras).length) {
+                $('#camblock .row').empty();
+                $('#cammenu').empty();
+                Object.keys(data.cameras).forEach(function (mac) {
+                    let div = document.createElement("div");
+                    div.className = 'col-xs-4 col-md-4 camlist-item';
+                    div.dataset.camera = mac;
+                    div.innerHTML = '<a href="index.html?camera=' + mac + '"><img src="" alt=""></a>';
+                    $('#camblock .row').append(div);
+
+                    let li = document.createElement("li");
+                    li.innerHTML = '<a href="?camera=' + mac + '"><i class="fa fa-camera-retro"></i> &nbsp; ' + data.cameras[mac] + '</a></li><li role="separator" class="divider">';
+                    $('#cammenu').append(li);
+                });
+            }
+            return resolve();
+        });
+    });
+}

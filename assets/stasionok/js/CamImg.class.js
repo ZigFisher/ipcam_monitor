@@ -6,16 +6,35 @@ class CamImg {
 
         CamImg.inst[camera] = this;
         this.imagesList = [];
-        this.baseUrl = '/~rewm/' + camera + '/';
+        this.user = 'rewm';
+        this.camera = camera;
+        this.baseUrl = '/~' + this.user + '/' + camera + '/';
         this.startIndex = 1;
         this.shiftSlides = 80;
         this.refreshTimeout = 60;
+        this.refreshOneCamTimeout = 60;
         this.datepicker = datepicker;
         this.fotorama = fotorama;
 
         this.initHour = 0;
         this.initMinute = 0;
         return this;
+    }
+
+    setConfig(config) {
+        if (typeof config === 'undefined' || !config.length) config = 'config.json';
+        return new Promise((resolve, reject) => {
+            $.get(config, function (data) {
+                if (!Object.keys(data).length) return resolve();
+                this.user = typeof data.user !== 'undefined' ? data.user : this.user;
+                this.baseUrl = '/~' + this.user + '/' + this.camera + '/';
+                this.shiftSlides = typeof data.shiftSlides !== 'undefined' ? data.shiftSlides : this.shiftSlides;
+                this.refreshTimeout = typeof data.refreshTimeout !== 'undefined' ? data.refreshTimeout : this.refreshTimeout;
+                this.refreshOneCamTimeout = typeof data.refreshOneCamTimeout !== 'undefined' ? data.refreshOneCamTimeout : this.refreshOneCamTimeout;
+                return resolve();
+            });
+        });
+
     }
 
     getFullUrl() {
@@ -131,9 +150,9 @@ class CamImg {
 
         this.refresh = setInterval(function () {
             let current = _this.getDateTime();
-            _this.datepicker.selectDate(new Date(current.getTime() + _this.refreshTimeout * 1000));
+            _this.datepicker.selectDate(new Date(current.getTime() + _this.refreshOneCamTimeout * 1000));
             return _this.showPictures();
-        }, this.refreshTimeout * 1000);
+        }, this.refreshOneCamTimeout * 1000);
     }
 
     getInitTime() {

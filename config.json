@@ -1,0 +1,11 @@
+{
+  "cameras": {
+    "0012175E1558": "Камера № 1",
+    "00121774F153": "Камера № 2",
+    "001217809AD9": "Камера № 3"
+  },
+  "user": "rewm",
+  "shiftSlides": 80,
+  "refreshTimeout": 60,
+  "refreshOneCamTimeout": 60
+}
