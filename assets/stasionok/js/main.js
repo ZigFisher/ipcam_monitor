@@ -24,7 +24,8 @@ $(function () {
 
         let cameraClass = new CamImg(camera, datepicker, fotorama);
 
-        cameraClass.setConfig(config)
+        putConfigHtml(config)
+            .then(cameraClass.setConfig(config))
             .then(() => {
                 cameraClass.showPictures();
                 cameraClass.setRefresh(refresh); // if refresh = true set interval
