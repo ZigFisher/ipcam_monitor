@@ -56,7 +56,20 @@ $(function () {
         let cameraClass = new CamImg(camera, datepicker, fotorama); //get exists with singleton
 
         cameraClass.setRefresh(refresh); // if refresh = true set interval
-    })
+    });
+
+    $('#makeurl').click(function () {
+        let date = new Date(datepicker.selectedDates);
+        date = date.getFullYear() + '-' + getLeadingZeroNum(date.getMonth() + 1) + '-' + getLeadingZeroNum(date.getDate());
+        console.log(date);
+        let time = $('.fotorama__active .fotorama__caption__wrap').html();
+        console.log(time);
+
+        let theURL = new URL(window.location);
+        theURL.searchParams.set('date', date);
+        theURL.searchParams.set('time', time);
+        $('#url').val(theURL.toString()).show();
+    });
 });
 
 
