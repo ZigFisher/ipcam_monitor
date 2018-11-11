@@ -68,7 +68,7 @@ $(function () {
         let theURL = new URL(window.location);
         theURL.searchParams.set('date', date);
         theURL.searchParams.set('time', time);
-        $('#url').val(theURL.toString()).show();
+        $('#url').val(theURL.toString()).toggle();
     });
 });
 
