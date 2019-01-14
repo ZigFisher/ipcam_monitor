@@ -1,6 +1,7 @@
 .camlist-item a {
     background-image: url("/assets/images/test_640x.jpg");
     display: block;
+    background-size: 100% 100%;
 }
 
 
