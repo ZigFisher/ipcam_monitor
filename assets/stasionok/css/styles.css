@@ -1,3 +1,9 @@
+.camlist-item a {
+    background-image: url("/assets/images/test_640x.jpg");
+    display: block;
+}
+
+
 #camblock img {
     max-width: 100%;
     display: block;
