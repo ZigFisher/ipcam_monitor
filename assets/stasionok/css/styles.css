@@ -1,5 +1,7 @@
 #camblock img {
     max-width: 100%;
+    display: block;
+    min-height: 295px;
 }
 
 #camblock .camlist-item {
