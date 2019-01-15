@@ -5,6 +5,7 @@
   "shiftSlides": 80,
   "refreshTimeout": 30,
   "refreshOneCamTimeout": 60,
+  "dieCamTimeout": 5,
    "cameras": {
     "0012175E1558": "Камера № 1",
     "00121774F153": "Камера № 2",

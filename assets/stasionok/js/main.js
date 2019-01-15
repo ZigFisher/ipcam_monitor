@@ -16,21 +16,26 @@ $(function () {
         $('#camblock').hide();
         $('h2').html(camera);
 
-        if (date && time) {
-            datepicker.selectDate(new Date(date + ' ' + time)); // set now as default datetime
-        } else {
-            datepicker.selectDate(new Date()); // set now as default datetime
-        }
+        CamImg.parseConfig(config)
+            .then(cfg => {
+                let descr = cfg.cameras[camera];
+                $('h3').html(descr);
 
-        let cameraClass = new CamImg(camera, datepicker, fotorama);
+                if (date && time) {
+                    datepicker.selectDate(new Date(date + ' ' + time)); // set now as default datetime
+                } else {
+                    datepicker.selectDate(new Date()); // set now as default datetime
+                }
 
-        putConfigHtml(config)
-            .then(cameraClass.setConfig(config))
-            .then(() => {
-                cameraClass.showPictures();
-                cameraClass.setRefresh(refresh); // if refresh = true set interval
-            })
+                let cameraClass = new CamImg(camera, datepicker, fotorama);
 
+                putConfigHtml(config)
+                    .then(cameraClass.setConfig(config))
+                    .then(() => {
+                        cameraClass.showPictures();
+                        cameraClass.setRefresh(refresh); // if refresh = true set interval
+                    })
+            });
     } else {
         $('#onecam').hide();
         $('#camblock').show();
@@ -77,26 +82,37 @@ $(function () {
 
 function setLastCamsImg() {
     $('.camlist-item').each(function (i, item) {
-        var cam = $(item).data('camera');
+        let cam = $(item).data('camera');
         if (cam.length > 3) {
-            var dtnow = new Date(),
+            let dtnow = new Date(),
                 datenow = dtnow.getFullYear() + '/' + getLeadingZeroNum(dtnow.getMonth() + 1) + '/' + getLeadingZeroNum(dtnow.getDate()),
                 camurl = '/~rewm/' + cam + '/' + datenow;
             // camurl = 'http://localhost:63342/cam-img-to-video/example.html'; // FIXME: DEBUG!!
             $.get(camurl, function (data) {
-                var htmlt = $.parseHTML(data);
+                let htmlt = $.parseHTML(data);
 
-                var aaa = $(htmlt).find("a").toArray();
-                var imgg;
+                let aaa = $(htmlt).find("a").toArray();
+                let imgg;
                 while (true) {
                     imgg = aaa.pop();
                     imgg = $(imgg).attr('href');
                     if (imgg.substr(-4) === '.jpg') break;
                 }
-                var res = camurl + '/' + imgg;
-                var dest = $('.camlist-item')[i];
+                let res = camurl + '/' + imgg;
+                let dest = $('.camlist-item')[i];
                 dest = $(dest).find('img')[0];
-                $(dest).attr('src', res);
+
+                CamImg.parseConfig(window.config)
+                    .then(cfg => {
+                        let dieTtl = cfg.dieCamTimeout || 5;
+                        let d = new Date();
+                        let lastpic = imgg.replace('.jpg', '').split('.');
+                        let now = d.getHours() * 60 + d.getMinutes();
+                        lastpic = parseInt(lastpic[0]) * 60 + parseInt(lastpic[1]) + dieTtl;
+                        if (lastpic >= now)
+                            $(dest).attr('src', res);
+                    });
+
             });
         }
     })

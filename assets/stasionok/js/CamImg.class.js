@@ -13,6 +13,7 @@ class CamImg {
         this.shiftSlides = 80;
         this.refreshTimeout = 60;
         this.refreshOneCamTimeout = 60;
+        this.dieCamTimeout = 5; // 5 minutes
         this.datepicker = datepicker;
         this.fotorama = fotorama;
 
@@ -21,20 +22,27 @@ class CamImg {
         return this;
     }
 
-    setConfig(config) {
+    async setConfig(config) {
+        let data = await CamImg.parseConfig(config);
+
+        this.user = typeof data.user !== 'undefined' ? data.user : this.user;
+        this.baseUrl = '/~' + this.user + '/' + this.camera + '/';
+        this.shiftSlides = typeof data.shiftSlides !== 'undefined' ? data.shiftSlides : this.shiftSlides;
+        this.refreshTimeout = typeof data.refreshTimeout !== 'undefined' ? data.refreshTimeout : this.refreshTimeout;
+        this.refreshOneCamTimeout = typeof data.refreshOneCamTimeout !== 'undefined' ? data.refreshOneCamTimeout : this.refreshOneCamTimeout;
+        this.dieCamTimeout = typeof data.dieCamTimeout !== 'undefined' ? data.dieCamTimeout : this.dieCamTimeout;
+
+        return true;
+    }
+
+    static parseConfig(config) {
         if (typeof config === 'undefined' || !config) config = 'config.json';
         return new Promise((resolve, reject) => {
             $.get(config, function (data) {
-                if (!Object.keys(data).length) return resolve();
-                this.user = typeof data.user !== 'undefined' ? data.user : this.user;
-                this.baseUrl = '/~' + this.user + '/' + this.camera + '/';
-                this.shiftSlides = typeof data.shiftSlides !== 'undefined' ? data.shiftSlides : this.shiftSlides;
-                this.refreshTimeout = typeof data.refreshTimeout !== 'undefined' ? data.refreshTimeout : this.refreshTimeout;
-                this.refreshOneCamTimeout = typeof data.refreshOneCamTimeout !== 'undefined' ? data.refreshOneCamTimeout : this.refreshOneCamTimeout;
-                return resolve();
+                if (!Object.keys(data).length) return reject();
+                return resolve(data);
             });
         });
-
     }
 
     getFullUrl() {
