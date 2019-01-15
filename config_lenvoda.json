@@ -1,0 +1,15 @@
+{
+  "name": "LenVoda",
+  "url": "http://crimeainfo.com",
+  "user": "rewm",
+  "shiftSlides": 80,
+  "refreshTimeout": 30,
+  "refreshOneCamTimeout": 60,
+  "dieCamTimeout": 5,
+   "cameras": {
+    "001216AD897A": "Насосная станция - фильтры",
+    "001216ACCBCE": "Насосная станция - машзал",
+    "001216AD68C4": "Насосная станция - ворота",
+    "001216AD94BC": "Водораздаточная станция"
+  }
+}
