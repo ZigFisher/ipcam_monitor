@@ -138,7 +138,8 @@ function putConfigHtml(config) {
                     let div = document.createElement("div");
                     div.className = 'col-xs-4 col-md-4 camlist-item';
                     div.dataset.camera = mac;
-                    div.innerHTML = '<a href="index.html?camera=' + mac + '"><img src="" alt=""></a>';
+                    div.innerHTML = '<a href="index.html?camera=' + mac + '"><img src="" alt=""></a>' +
+                        '<span class="onhover">' + data.cameras[mac] + '</span>';
                     $('#camblock .row').append(div);
 
                     let li = document.createElement("li");
