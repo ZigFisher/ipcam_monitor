@@ -136,7 +136,7 @@ function putConfigHtml(config) {
                 $('#cammenu').empty();
                 Object.keys(data.cameras).forEach(function (mac) {
                     let div = document.createElement("div");
-                    div.className = 'col-xs-4 col-md-4 camlist-item';
+                    div.className = 'col-xs-12 col-md-4 camlist-item';
                     div.dataset.camera = mac;
                     div.innerHTML = '<a href="index.html?camera=' + mac + '"><img src="" alt=""></a>' +
                         '<span class="onhover">' + data.cameras[mac] + '</span>';
