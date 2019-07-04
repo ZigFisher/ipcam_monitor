@@ -29,3 +29,9 @@
     margin-bottom: 2rem;
     position: relative;
 }
+
+@media (min-width: 560px) and (max-width: 768px) {
+    #camblock .camlist-item {
+        width: 50%;
+    }
+}
