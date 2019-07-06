@@ -1,0 +1,13 @@
+{
+  "name": "ZFT Lab.",
+  "url": "http://zftlab.org",
+  "user": "rewm",
+  "shiftSlides": 80,
+  "refreshTimeout": 30,
+  "refreshOneCamTimeout": 60,
+  "dieCamTimeout": 5,
+   "cameras": {
+    "001216D045FC": "ZFT Lab. 51",
+    "001216F7E5EC": "ZFT Lab. OpenIPC-01"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Artezian",
+  "url": "https://www.facebook.com/octonix.net/",
+  "user": "rewm",
+  "shiftSlides": 80,
+  "refreshTimeout": 30,
+  "refreshOneCamTimeout": 60,
+  "dieCamTimeout": 130,
+   "cameras": {
+    "001212F56662": "Артезиан-1",
+    "10A4BEF8F698": "Артезиан-2"
+  }
+}

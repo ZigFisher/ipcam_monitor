@@ -1,0 +1,13 @@
+{
+  "name": "Viking",
+  "url": "https://netrisk.ru/910906873206",
+  "user": "rewm",
+  "shiftSlides": 80,
+  "refreshTimeout": 30,
+  "refreshOneCamTimeout": 60,
+  "dieCamTimeout": 5,
+   "cameras": {
+    "001216AD05B3": "Родничок",
+    "001216D03D5B": "IPCam Black"
+  }
+}
