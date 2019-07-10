@@ -1,0 +1,14 @@
+{
+  "name": "Караби-яйла",
+  "url": "http://zftlab.org",
+  "user": "rewm",
+  "shiftSlides": 80,
+  "refreshTimeout": 30,
+  "refreshOneCamTimeout": 60,
+  "dieCamTimeout": 5,
+   "cameras": {
+    "001201000ECA": "Караби-яйла 8 (JVT 16M)",
+    "E06290BA28DA": "Караби-яйла 9 (Sunwo 8M)",
+    "001212048BD6": "Караби-яйла (старая)"
+  }
+}
