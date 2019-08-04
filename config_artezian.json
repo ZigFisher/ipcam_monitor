@@ -1,6 +1,6 @@
 {
   "name": "Artezian",
-  "url": "https://www.facebook.com/octonix.net/",
+  "url": "https://vk.com/artezianinfo",
   "user": "rewm",
   "shiftSlides": 80,
   "refreshTimeout": 30,
@@ -8,6 +8,7 @@
   "dieCamTimeout": 130,
    "cameras": {
     "001212F56662": "Артезиан-1",
-    "10A4BEF8F698": "Артезиан-2"
+    "10A4BEF8F698": "Артезиан-2",
+    "0012171963C9": "Артезиан-3"
   }
 }
