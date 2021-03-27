@@ -7,6 +7,7 @@
   "refreshOneCamTimeout": 60,
   "dieCamTimeout": 5,
    "cameras": {
-    "001216D045FC": "ZFT Lab. 51"
+    "001217B1D614": "ZFT Lab. 1",
+    "001217B1913A": "ZFT Lab. 2"
   }
 }
